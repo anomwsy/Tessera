@@ -1,0 +1,4 @@
+<div [ngSwitch]="currentLayout()" class="body-root">
+    <app-layout *ngSwitchCase="'default'" [username]="username" [role]="role"></app-layout>
+    <app-auth-layout *ngSwitchCase="'auth'"></app-auth-layout>
+</div>

@@ -1,0 +1,24 @@
+<div class="header">
+  <div class="left-header">
+    <button class="menu-button" (click)="setIsOpenedNav()">
+      <i class="fa fa-bars"></i>
+    </button>
+  </div>
+  <div class="center-header">
+    <a routerLink="/">
+      <img src="{{ logoUrl }}" style="width: 40px; height: 40px">
+      <h4>Tes<b>Sera</b></h4>
+    </a>
+  </div>
+  <div class="right-header">
+      <button  class="menu-button">
+        <i class="fa-regular fa-bell"></i>
+      </button>
+      <button class="menu-button" (click)="openAccount()">
+        <i class="fa fa-user"></i>
+      </button>
+    <!-- <button class="btn btn-danger logout" (click)="logout()">Log Out</button> -->
+  </div>
+</div>
+
+<app-account *ngIf="isAccountOpen" (closeAccount)="closeAccount()" (logoutEvent)="logout()" [username]="username" [role]="role"></app-account>

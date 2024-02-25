@@ -1,0 +1,83 @@
+.table-employees {
+  margin-top: 20px;
+  width: 100%;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgb(241, 241, 241);
+}
+
+th:first-child{
+  width: 100px ;
+}
+
+th,
+td {
+  padding: 5px 20px;
+}
+
+th {
+  border-bottom: 1px solid rgb(182, 182, 182);
+}
+
+tbody tr{
+  transition: transform 0.1s ease;
+}
+tbody tr.selected {
+  background-color: rgb(217, 229, 255);
+  position: relative;
+  transform: translateX(10px);
+}
+
+tfoot td {
+  padding: 15px 20px;
+}
+
+tfoot td > div {
+  gap: 5px;
+}
+
+tfoot td > div > button {
+  border: 1px solid rgb(125, 151, 154);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 25px;
+  border-radius: 5px;
+  background-color: rgb(239, 245, 245);
+}
+
+.next,
+.prev {
+  padding: 0 20px;
+}
+
+tfoot td > div > button:hover {
+  background-color: rgb(217, 229, 255);
+}
+
+tfoot td > div > button.active {
+  background-color: rgb(217, 229, 255);
+}
+
+tfoot td > div >button.disable {
+  border: 1px solid rgb(177, 177, 177);;
+  color: rgb(177, 177, 177);
+  cursor: no-drop;
+}
+
+tfoot td > div > button.disable:hover {
+    background-color: rgb(239, 245, 245);
+}
+
+.search{
+  display: flex;
+  gap: 10px;
+}
+
+button.delete{
+  width: 300px;
+}
+
+
+

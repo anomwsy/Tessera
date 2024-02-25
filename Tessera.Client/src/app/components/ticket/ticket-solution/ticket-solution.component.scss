@@ -1,0 +1,87 @@
+.popup-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-dialog{
+  background-color: rgb(66, 66, 66);
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.form-control{
+  background-color: rgb(89, 89, 89);
+  color: white;
+}
+
+.form-control::placeholder{
+  color: rgb(194, 194, 194);
+}
+
+label.input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+}
+
+button{
+  width: 100%;
+}
+
+button.cancel {
+  background-color: rgb(255, 0, 0);
+  color: rgb(13, 12, 28);
+  color: white;
+  border: 1px solid rgb(255, 0, 0);
+}
+
+button.cancel:hover {
+  background-color: rgb(188, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+button.create{
+  background-color: rgb(255, 204, 0);
+  color: rgb(13, 12, 28);
+  border: 1px solid rgb(255, 242, 0);
+}
+
+button.create:hover {
+  background-color: rgb(255, 162, 0);
+  color: rgb(13, 12, 28);
+}
+
+button.disable {
+  border: 1px solid rgb(177, 177, 177);;
+  color: rgb(177, 177, 177);
+  cursor: no-drop;
+}
+
+div.alert.alert-danger {
+  padding: 0px 20px;
+  text-align: center;
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: -5px;
+  color: rgb(182, 0, 0);
+}
+div.alert.alert-danger.errorMessage {
+  margin: 0;
+}

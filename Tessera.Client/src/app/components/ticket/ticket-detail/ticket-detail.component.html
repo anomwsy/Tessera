@@ -1,0 +1,118 @@
+  <div class="popup">
+    <table>
+      <tbody>
+        <tr class="title">
+          <td>
+            Title
+          </td>
+          <td>
+            :
+          </td>
+          <td>
+            <div *ngIf="!isLoading">
+              {{data.title}}
+            </div>
+          </td>
+        </tr>
+        <tr class="details">
+          <td>
+            Details
+          </td>
+          <td>
+            :
+          </td>
+          <td>
+            <div *ngIf="!isLoading">
+              {{data.workStatus === "InProgress"? data.details : data.description}}
+            </div>
+          </td>
+        </tr>
+        <tr class="dueDate" *ngIf="data.workStatus === 'InProgress'">
+          <td>
+            Due Date
+          </td>
+          <td>
+            :
+          </td>
+          <td>
+            <div *ngIf="!isLoading" [ngStyle]="dueDateStyle()">
+              {{data.dateLine}}
+            </div>
+          </td>
+        </tr>
+        <tr class="completedStatus" *ngIf="data.workStatus !== 'InProgress'">
+          <td>
+            Status
+          </td>
+          <td>
+            :
+          </td>
+          <td>
+            <div *ngIf="!isLoading">
+              {{data.completedStatus}}
+            </div>
+          </td>
+        </tr>
+        <tr class="urgency" >
+          <td>
+            Urgency
+          </td>
+          <td>
+            :
+          </td>
+          <td>
+            <div *ngIf="!isLoading" [ngStyle]="urgencyStyle()">
+              {{data.urgency}}
+            </div>
+          </td>
+        </tr>
+        <tr class="createdBy" *ngIf="role !== 'TechSupport'">
+          <td>
+            Created By
+          </td>
+          <td>
+            :
+          </td>
+          <td>
+            <div *ngIf="!isLoading">
+              {{data.createdBy}}
+            </div>
+          </td>
+        </tr>
+        <tr class="appointedTo" *ngIf="role !== 'TechSupport'">
+          <td>
+            Appointed To
+          </td>
+          <td>
+            :
+          </td>
+          <td>
+            <div *ngIf="!isLoading">
+              {{data.appointedTo}}
+            </div>
+          </td>
+        </tr>
+        <tr class="reviewDate" *ngIf="data.workStatus !== 'InProgress' && (role === 'Manager' ? data.reviewDate !== 'Pending' : true)">
+          <td>
+            reviewed Date
+          </td>
+          <td>
+            :
+          </td>
+          <td>
+            <div *ngIf="!isLoading" [ngStyle]="reviewDateStyle()">
+              {{data.reviewDate}}
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="button-container" *ngIf="completeButton || cancelButton || checkButton">
+      <button *ngIf="completeButton" class="create" (click)="completeTicket()">Complete</button>
+      <button *ngIf="cancelButton" class="reject" (click)="cancelTicket()">Cancel Ticket</button>
+      <button *ngIf="checkButton" class="check" (click)="reviewTicket()" [disabled]="reviewButtonLoading">
+        <span *ngIf="!reviewButtonLoading">Checked</span>
+        <div *ngIf="reviewButtonLoading" class="loading-spinner"></div>
+      </button>
+    </div>
+  </div>

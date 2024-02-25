@@ -1,0 +1,94 @@
+.header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "left center right";
+    padding: 15px 50px;
+}
+
+.left-header{
+    grid-area: left;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+i{
+    font-size: 20px;
+}
+
+.left-header button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    color: white;
+  }
+
+.center-header>a{
+    display: flex;
+    grid-area: center;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+h4{
+    margin: 0;
+    font-size: 30px;
+}
+
+h4 b{
+font-weight: bolder;
+color: rgb(255, 221, 0);
+}
+
+.right-header{
+    grid-area: right;
+    text-align: right;
+    color: white;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 20px;
+}
+
+.right-header button{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+.logout{
+    padding: 5px 15px;
+}
+
+i.fa {
+    width: 20px;
+    height: 20px;
+}
+
+.profile-container{
+  display: flex;
+  gap: 10px;
+}
+.profile{
+  display: flex;
+  flex-direction: column;
+}
+
+.profile h3{
+  font-size: 18px;
+  margin: 0;
+}
+
+.profile p{
+  font-size: 12px;
+  margin: 0;
+  margin-top: -5px;
+}
+

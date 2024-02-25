@@ -1,0 +1,10 @@
+<div class="navbar {{ isOpenedNav ? '' : 'close' }}">
+    <ul>
+        <li><a (click)="openMenu('home')" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><div class="icon"><i class="fa fa-home"></i></div>Home</a></li>
+        <li *ngIf="role === 'Admin' || role === 'Manager'" ><a [class.notif]="employee" (click)="openMenu('employee')" routerLink="/employee" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><div class="icon"><i class="fa fa-users"></i></div>Employee <i *ngIf="employee" class="fa-solid fa-circle notification"></i></a></li>
+        <li *ngIf="role === 'Admin' || role === 'Manager'" ><a routerLink="/techsupport" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><div class="icon"><i class="fa fa-user-gear"></i></div>Technical Support</a></li>
+        <li *ngIf="role === 'Admin'"><a [class.notif]="appeal" (click)="openMenu('appeal')" routerLink="/appeal" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><div class="icon"><i class="fa fa-message"></i></div>Appeal <i *ngIf="appeal" class="fa-solid fa-circle notification"></i></a></li>
+        <li><a [class.notif]="ticket" (click)="openMenu('ticket')" routerLink="/ticket" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><div class="icon"><i class="fa-solid fa-ticket-simple"></i></div>Ticket <i *ngIf="ticket" class="fa-solid fa-circle notification"></i></a></li>
+        <li><a [class.notif]="history" (click)="openMenu('history')" routerLink="/history" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><div class="icon"><i class="fa fa-book"></i></div>History <i *ngIf="history" class="fa-solid fa-circle notification"></i></a></li>
+      </ul>
+</div>

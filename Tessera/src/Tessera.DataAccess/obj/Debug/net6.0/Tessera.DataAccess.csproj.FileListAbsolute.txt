@@ -1,0 +1,14 @@
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\bin\Debug\net6.0\Tessera.DataAccess.deps.json
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\bin\Debug\net6.0\Tessera.DataAccess.runtimeconfig.json
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\bin\Debug\net6.0\Tessera.DataAccess.dll
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\bin\Debug\net6.0\Tessera.DataAccess.pdb
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\obj\Debug\net6.0\Tessera.DataAccess.csproj.AssemblyReference.cache
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\obj\Debug\net6.0\Tessera.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\obj\Debug\net6.0\Tessera.DataAccess.AssemblyInfoInputs.cache
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\obj\Debug\net6.0\Tessera.DataAccess.AssemblyInfo.cs
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\obj\Debug\net6.0\Tessera.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\obj\Debug\net6.0\Tessera.DataAccess.dll
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\obj\Debug\net6.0\refint\Tessera.DataAccess.dll
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\obj\Debug\net6.0\Tessera.DataAccess.pdb
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\obj\Debug\net6.0\Tessera.DataAccess.genruntimeconfig.cache
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.DataAccess\obj\Debug\net6.0\ref\Tessera.DataAccess.dll

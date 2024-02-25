@@ -1,0 +1,214 @@
+<div style="display: flex;">
+  <button class="button-setting back" routerLink="/employee">Back</button>
+  <button *ngIf="role === 'Admin' && employeeDetail!==null && !isEditing" class="button-setting edit" (click)="edit()">Edit</button>
+  <button *ngIf="role === 'Admin' && employeeDetail!==null && isEditing" class="button-setting cancel" (click)="cancelEdit()">Cancel</button>
+  <button *ngIf="role === 'Admin' && employeeDetail!==null && !isEditing && employeeDetail.role === 'Tech Support'" class="button-setting cancel" (click)="deleteEmployee()">Delete</button>
+  <div *ngIf="isLoading" class="loading" style="margin-left: 20px; height: 38px; width: 250px;"></div>
+  <app-title-page *ngIf="!isLoading">
+    <div class="title-content">{{employeeDetail === null ? 'New Employee' :(employeeDetail?.firstName + ' ' + (employeeDetail?.lastName === null ? '' :
+      employeeDetail?.lastName))}}</div>
+  </app-title-page>
+</div>
+
+<div class="detail-container">
+  <div class="photo-profile">
+    <div class="photo"></div>
+  </div>
+  <div class="detail-data">
+    <form action="" class="form" [formGroup]="detailForm" (ngSubmit)="onSubmit()">
+      <table>
+        <tr>
+          <td>
+            <label class="input" for="firstName">First Name</label>
+          </td>
+          <td>
+            <input id="firstName" placeholder="Enter Your First Name" class="form-control" type="text" name="firstName"
+              formControlName="firstName">
+          </td>
+        </tr>
+        <tr *ngIf="detailForm.controls['firstName'].touched && !detailForm.controls['firstName'].valid">
+          <td></td>
+          <td>
+            <div class="alert alert-danger" style="padding: 0;text-align: center;">
+              <div *ngIf="detailForm.controls['firstName'].errors?.['required']">First Name is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label class="input" for="lastName">Last Name</label>
+          </td>
+          <td>
+            <input id="lastName" placeholder="Enter Your Last Name" class="form-control" type="text" name="lastName"
+              formControlName="lastName">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label class="input" for="birthDate">Birth Date</label>
+          </td>
+          <td>
+            <input *ngIf="!isEditing" id="birthDate" class="form-control" type="text" name="birthDate" disabled
+              value="{{employeeDetail?.birthDate | date : 'dd MMMM yyyy'}}">
+            <input *ngIf="isEditing" id="birthDate" class="form-control" type="date" name="birthDate"
+              formControlName="birthDate">
+          </td>
+        </tr>
+        <tr *ngIf="detailForm.controls['birthDate'].touched && !detailForm.controls['birthDate'].valid">
+          <td></td>
+          <td>
+            <div class="alert alert-danger" style="padding: 0;text-align: center;">
+              <div *ngIf="detailForm.controls['birthDate'].errors?.['required']">Birth Date is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label class="input" for="email">Email</label>
+          </td>
+          <td>
+            <input id="email" placeholder="Enter Your Email" class="form-control" type="email" name="email"
+              formControlName="email">
+          </td>
+        </tr>
+        <tr *ngIf="detailForm.controls['email'].touched && !detailForm.controls['email'].valid">
+          <td></td>
+          <td>
+            <div class="alert alert-danger" style="padding: 0;text-align: center;">
+              <div *ngIf="detailForm.controls['email'].errors?.['required']">Email is required</div>
+              <div *ngIf="detailForm.controls['email'].errors?.['email']">Email is invalid</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label class="input" for="phoneNumber">Phone Number</label>
+          </td>
+          <td>
+            <input id="phoneNumber" placeholder="Enter Your Phone Number" class="form-control" type="text"
+              name="phoneNumber" formControlName="phoneNumber">
+          </td>
+        </tr>
+        <tr *ngIf="detailForm.controls['phoneNumber'].touched && !detailForm.controls['phoneNumber'].valid">
+          <td></td>
+          <td>
+            <div class="alert alert-danger" style="padding: 0;text-align: center;">
+              <div *ngIf="detailForm.controls['phoneNumber'].errors?.['required']">Phone Number is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label class="input" for="jobTitle">Job Title</label>
+          </td>
+          <td>
+            <input id="jobTitle" placeholder="Enter Your Job Title" class="form-control" type="text" name="jobTitle"
+              formControlName="jobTitle">
+          </td>
+        </tr>
+        <tr *ngIf="detailForm.controls['jobTitle'].touched && !detailForm.controls['jobTitle'].valid">
+          <td></td>
+          <td>
+            <div class="alert alert-danger" style="padding: 0;text-align: center;">
+              <div *ngIf="detailForm.controls['jobTitle'].errors?.['required']">Job Title is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr *ngIf="!isEditing">
+          <td>
+            <label class="input" for="hireDate">Hire Date</label>
+          </td>
+          <td>
+            <div style="height: 40px; padding: 0 10px;  display: flex; align-items: center;">{{employeeDetail?.hireDate
+              | date : 'dd MMMM yyyy'}}</div>
+          </td>
+        </tr>
+
+        <tr *ngIf="employeeDetail === null">
+          <td>
+            <label class="input" for="username">Username</label>
+          </td>
+          <td>
+            <input id="username" placeholder="Enter Your UserName" class="form-control" type="text" name="username"
+              formControlName="username">
+          </td>
+        </tr>
+        <tr
+          *ngIf="employeeDetail === null && detailForm.controls['username'].touched && !detailForm.controls['username'].valid">
+          <td></td>
+          <td>
+            <div class="alert alert-danger" style="padding: 0;text-align: center;">
+              <div *ngIf="detailForm.controls['username'].errors?.['required']">UserName is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr *ngIf="employeeDetail === null">
+          <td>
+            <label class="input" for="password">Password</label>
+          </td>
+          <td>
+            <input autocomplete="password" id="password" placeholder="Enter Your password" class="form-control"
+              type="password" name="password" formControlName="password">
+          </td>
+        </tr>
+        <tr
+          *ngIf="employeeDetail === null && detailForm.controls['password'].touched && !detailForm.controls['password'].valid">
+          <td></td>
+          <td>
+            <div class="alert alert-danger" style="padding: 0;text-align: center;">
+              <div *ngIf="detailForm.controls['password'].errors?.['required']">Password is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr *ngIf="employeeDetail === null">
+          <td>
+            <label class="input" for="role">Role</label>
+          </td>
+          <td>
+            <select name="role" id="role" formControlName="role" class="form-control">
+              <option value="" style="color: white;">--Select One--</option>
+              <option *ngFor="let role of roles" [value]="role.value">{{role.text}}</option>
+            </select>
+          </td>
+        </tr>
+        <tr
+          *ngIf="employeeDetail === null && detailForm.controls['role'].touched && !detailForm.controls['role'].valid">
+          <td></td>
+          <td>
+            <div class="alert alert-danger" style="padding: 0;text-align: center;">
+              <div *ngIf="detailForm.controls['role'].errors?.['required']">Role is required</div>
+            </div>
+          </td>
+        </tr>
+
+        <tr *ngIf="(employeeDetail?.role && employeeDetail?.role !== 'Manager') ||
+          (employeeDetail === null &&
+           (detailForm.controls['role']?.value !== 'Manager' && detailForm.controls['role']?.value !== ''))">
+          <td>
+            <label class="input" for="reportsTo">Reports To</label>
+          </td>
+          <td>
+            <select name="reportsTo" id="reportsTo" formControlName="reportsTo" class="form-control">
+              <option value="" style="color: white;">--Select One--</option>
+              <option *ngFor="let manager of managers" [value]="manager.value">{{manager.text}}</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr *ngIf="detailForm.controls['reportsTo'].touched && !detailForm.controls['reportsTo'].valid">
+          <td></td>
+          <td>
+            <div class="alert alert-danger" style="padding: 0;text-align: center;">
+              <div *ngIf="detailForm.controls['reportsTo'].errors?.['required']">Reports To is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr *ngIf="isEditing">
+          <td colspan="2">
+            <button id="saveButton" class="button-setting save" type="submit" (click)="null">Save</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\bin\Debug\net6.0\Tessera.Business.deps.json
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\bin\Debug\net6.0\Tessera.Business.dll
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\bin\Debug\net6.0\Tessera.Business.pdb
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\bin\Debug\net6.0\Tessera.DataAccess.dll
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\bin\Debug\net6.0\Tessera.DataAccess.pdb
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\obj\Debug\net6.0\Tessera.Business.csproj.AssemblyReference.cache
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\obj\Debug\net6.0\Tessera.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\obj\Debug\net6.0\Tessera.Business.AssemblyInfoInputs.cache
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\obj\Debug\net6.0\Tessera.Business.AssemblyInfo.cs
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\obj\Debug\net6.0\Tessera.Business.csproj.CoreCompileInputs.cache
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\obj\Debug\net6.0\Tessera.Business.csproj.CopyComplete
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\obj\Debug\net6.0\Tessera.Business.dll
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\obj\Debug\net6.0\refint\Tessera.Business.dll
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\obj\Debug\net6.0\Tessera.Business.pdb
+C:\Users\1922\Desktop\Indocyber\Tessera Project\Tessera.Project\Tessera\src\Tessera.Business\obj\Debug\net6.0\ref\Tessera.Business.dll

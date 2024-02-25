@@ -1,0 +1,128 @@
+<app-title-page>
+  <div class="title-content">Employee list</div>
+</app-title-page>
+
+<div class="table-container">
+  <div class="filter-menu">
+    <input type="text" class="form-control" [(ngModel)]="search" placeholder="Search..." (input)="searchEmployee()">
+    <button routerLink="/add" *ngIf="role === 'Admin'" class="button-setting add"><i class="fa fa-add"></i>Add Employee</button>
+  </div>
+  <table class="table-employees">
+    <thead *ngIf="isLoading">
+      <tr class="trloading">
+        <th>
+          <div class="loading"></div>
+        </th>
+        <th>
+          <div class="loading"></div>
+        </th>
+        <th>
+          <div class="loading"></div>
+        </th>
+        <th>
+          <div class="loading"></div>
+        </th>
+      </tr>
+    </thead>
+    <thead *ngIf="!isLoading">
+      <tr>
+        <th (click)="sortColumn('FirstName')" style="cursor: pointer;">
+          <div style="display: flex; justify-content: space-between;">
+            <div>Full Name</div>
+            <div *ngIf="column === 'FirstName'" style="display: flex; justify-content: right;">
+              <div *ngIf="sort === true"><i class="fa fa-caret-up"></i></div>
+              <div *ngIf="sort === false"><i class="fa fa-caret-down"></i></div>
+            </div>
+          </div>
+        </th>
+        <th (click)="sortColumn('Email')" style="cursor: pointer;">
+          <div style="display: flex; justify-content: space-between;">
+            <div>Email</div>
+            <div *ngIf="column === 'Email'" style="display: flex; justify-content: right;">
+              <div *ngIf="sort === true"><i class="fa fa-caret-up"></i></div>
+              <div *ngIf="sort === false"><i class="fa fa-caret-down"></i></div>
+            </div>
+          </div>
+        </th>
+        <th (click)="sortColumn('JobTitle')" style="cursor: pointer;">
+          <div style="display: flex; justify-content: space-between;">
+            <div>Job Title</div>
+            <div *ngIf="column === 'JobTitle'" style="display: flex; justify-content: right;">
+              <div *ngIf="sort === true"><i class="fa fa-caret-up"></i></div>
+              <div *ngIf="sort === false"><i class="fa fa-caret-down"></i></div>
+            </div>
+          </div>
+        </th>
+        <th (click)="sortColumn('ReportsTo')" style="cursor: pointer;">
+          <div style="display: flex; justify-content: space-between;">
+            <div>Reports To</div>
+            <div *ngIf="column === 'ReportsTo'" style="display: flex; justify-content: right;">
+              <div *ngIf="sort === true"><i class="fa fa-caret-up"></i></div>
+              <div *ngIf="sort === false"><i class="fa fa-caret-down"></i></div>
+            </div>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody *ngIf="isLoading">
+      <tr *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" class="trloading">
+        <td>
+          <div class="loading"></div>
+        </td>
+        <td>
+          <div class="loading"></div>
+        </td>
+        <td>
+          <div class="loading"></div>
+        </td>
+        <td>
+          <div class="loading"></div>
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="!isLoading">
+      <tr *ngIf="employees.length === 0">
+        <td colspan="4" style="text-align: center;"><i>No data</i></td>
+      </tr>
+      <tr *ngFor="let employee of employees" (click)="selectEmployee(employee)"
+        [class.selected]="isEmployeeSelected(employee)" (dblclick)="detailEmployee(employee.id)">
+        <td>{{ employee.firstName }} {{ employee.lastName }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.jobTitle }}</td>
+        <td>{{ employee.reportsTo }}</td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="!isLoading">
+      <tr>
+        <td colspan="4">
+          <div>
+            <button (click)="page > 1?toPage(page - 1):null" class="prev" [class.disable]="page <= 1">
+              {{ 'Prev' }}
+            </button>
+            <button *ngFor="let pageNumber of range()" (click)="toPage(pageNumber)" style="cursor: pointer;"
+              [class.active]="page === pageNumber">
+              {{ pageNumber }}
+            </button>
+            <button (click)="page + 1 <= totalPage? toPage(page + 1):null" class="prev"
+              [class.disable]="page + 1 > totalPage">
+              {{ 'Next' }}
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+    <tfoot *ngIf="isLoading">
+      <tr>
+        <td colspan="4">
+          <div>
+            <button class="prev loading">
+            </button>
+            <button class="loading"></button>
+            <button class="next loading">
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

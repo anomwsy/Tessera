@@ -1,0 +1,9 @@
+<div class="layout-container">
+    <app-header (openNav)="setOpenedNav()" [username]="username" [role]="role"></app-header>
+    <div>
+        <app-navbar [isOpenedNav]="isOpenedNav" [role]="role"></app-navbar>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

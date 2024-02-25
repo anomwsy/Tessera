@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "o7RmBQ7wXL1/AX8DSqzZSdGGxjSQgbv/8iLGcOI0obI=",
+  "Source": "Tessera.Presentation.Api",
+  "BasePath": "_content/Tessera.Presentation.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

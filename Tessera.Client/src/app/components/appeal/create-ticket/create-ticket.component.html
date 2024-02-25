@@ -1,0 +1,68 @@
+<div class="popup-container">
+  <div class="popup-dialog">
+    <div style="margin-bottom: 20px; display: flex; justify-content: center;">
+      <h4>Create Ticket</h4>
+    </div>
+    <form action="" [formGroup]="createTicketForm" (submit)="onSubmit()">
+      <label for="title" class="input">
+        <input class="form-control" type="text" name="title" placeholder="Enter Title" formControlName="title">
+        <div class="alert alert-danger"
+          *ngIf="createTicketForm.controls['title'].touched && !createTicketForm.controls['title'].valid">
+          <div *ngIf="createTicketForm.controls['title'].errors?.['required']">Title is required</div>
+        </div>
+      </label>
+
+      <label for="details" class="input">
+        <input class="form-control" type="text" name="details" placeholder="Enter Details" formControlName="details">
+        <div class="alert alert-danger"
+          *ngIf="createTicketForm.controls['details'].touched && !createTicketForm.controls['details'].valid">
+          <div *ngIf="createTicketForm.controls['details'].errors?.['required']">Details is required</div>
+        </div>
+      </label>
+      <label for="dueDate" class="input">
+        <div style="display: flex;">
+          <div style="width: 110px; display: flex; align-items: center; justify-content: left; font-size: 16px;">Due
+            Date</div>
+          <input class="form-control" type="date" name="dueDate" formControlName="dueDate">
+        </div>
+        <div class="alert alert-danger"
+          *ngIf="createTicketForm.controls['dueDate'].touched && !createTicketForm.controls['dueDate'].valid">
+          <div *ngIf="createTicketForm.controls['dueDate'].errors?.['required']">Due date is required</div>
+          <div *ngIf="createTicketForm.controls['dueDate'].errors?.['DueDateValidation']">{{ createTicketForm.controls['dueDate'].errors?.['DueDateValidation'] }}</div>
+        </div>
+      </label>
+      <label for="urgency" class="input">
+        <select name="urgency" class="form-control" formControlName="urgency">
+          <option value="" disabled>--- Select Urgency ---</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+        <div class="alert alert-danger"
+          *ngIf="createTicketForm.controls['urgency'].touched && !createTicketForm.controls['urgency'].valid">
+          <div *ngIf="createTicketForm.controls['urgency'].errors?.['required']">Urgency is required</div>
+        </div>
+      </label>
+      <label for="appointedTo" class="input">
+        <select name="appointedTo" class="form-control" formControlName="appointedTo">
+          <option value="" disabled>--- Appointed to ---</option>
+          <option *ngFor="let tech of techSupports" [value]="tech.value">{{tech.text}}</option>
+        </select>
+        <div class="alert alert-danger"
+          *ngIf="createTicketForm.controls['appointedTo'].touched && !createTicketForm.controls['appointedTo'].valid">
+          <div *ngIf="createTicketForm.controls['appointedTo'].errors?.['required']">Appointed to is required</div>
+        </div>
+      </label>
+      <div style="display: flex; width: 100%; gap: 10px;">
+        <button type="submit" class="btn btn-primary create" [disabled]="isLoading">
+          <span *ngIf="!isLoading">Create</span>
+          <div *ngIf="isLoading" class="loading-spinner"></div>
+        </button>
+        <button type="button" class="btn btn-primary cancel" [disabled]="isLoading" (click)="cancelCreate()">
+          <span>Cancel</span>
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>

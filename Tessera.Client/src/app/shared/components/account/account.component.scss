@@ -1,0 +1,56 @@
+.account-container{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  right: 20px;
+  top: 20px;
+}
+
+.photo{
+  display: flex;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(195, 195, 195);
+  border: 5px solid rgb(255, 183, 0);
+}
+.picture{
+  margin-bottom: 10px;
+}
+.information{
+  margin-bottom: 10px;
+}
+
+h4, p{
+  margin: 0;
+  text-align: center;
+}
+
+h4{
+  color: rgb(255, 183, 0);
+  font-weight: bold;
+}
+
+button{
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(255, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 250px;
+  height: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  background-color: rgb(255, 30, 30);
+}
+
+button:hover{
+  background-color: rgb(201, 0, 0);
+}

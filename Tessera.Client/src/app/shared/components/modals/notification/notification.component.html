@@ -1,0 +1,13 @@
+<div class="notification-container" >
+    <div class="notification">
+        <div *ngIf="isSuccess" class="icon-container">
+            <div class="success-icon">&#10004;</div>
+        </div>
+        <div *ngIf="!isSuccess" class="icon-container">
+            <div class="error-icon">&#10006;</div>
+        </div>
+        <div class="message-container">
+            <ng-content class="message"></ng-content>
+        </div>
+    </div>
+</div>

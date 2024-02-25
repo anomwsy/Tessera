@@ -1,0 +1,29 @@
+<div class="popup-container">
+  <div class="popup-dialog">
+    <div style="margin-bottom: 20px; display: flex; justify-content: center;">
+      <h4>Ticket Solution</h4>
+    </div>
+    <form action="" [formGroup]="createTicketForm" (submit)="onSubmit()">
+      <label for="title" class="input">
+        <input class="form-control" type="text" name="status" value="{{status ? 'Completed' : 'Cancelled'}}" disabled>
+      </label>
+      <label for="title" class="input">
+        <input class="form-control" type="text" name="description" placeholder="Enter description" formControlName="description">
+        <div class="alert alert-danger"
+          *ngIf="createTicketForm.controls['description'].touched && !createTicketForm.controls['description'].valid">
+          <div *ngIf="createTicketForm.controls['description'].errors?.['required']">Title is required</div>
+        </div>
+      </label>
+      <div style="display: flex; width: 100%; gap: 10px;">
+        <button type="submit" class="btn btn-primary create" [disabled]="isLoading">
+          <span *ngIf="!isLoading">Create</span>
+          <div *ngIf="isLoading" class="loading-spinner"></div>
+        </button>
+        <button type="button" class="btn btn-primary cancel" [disabled]="isLoading" (click)="cancelCreate()">
+          <span>Cancel</span>
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>

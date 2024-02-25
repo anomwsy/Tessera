@@ -1,0 +1,126 @@
+<app-title-page>
+  <div class="title-content">Ticket</div>
+</app-title-page>
+<div class="menu-container">
+  <button class="button-setting show"
+    [class.active]="workStatus === 'InProgress' || workStatus === '' ||  workStatus === null"
+    (click)="workStatusChange(null)">In Progress
+    <div *ngIf="inProgress > 0" class="notification">
+      {{inProgress}}
+    </div></button>
+  <button class="button-setting show" [class.active]="workStatus === 'Completed'"
+    (click)="workStatusChange('Completed')">Completed
+    <div *ngIf="completed > 0" class="notification">
+      {{completed}}
+    </div>
+  </button>
+  <button class="button-setting show" [class.active]="workStatus === 'Cancelled'"
+    (click)="workStatusChange('Cancelled')">Cancelled
+    <div *ngIf="cancelled > 0"  class="notification">
+      {{cancelled}}
+    </div>
+  </button>
+</div>
+<div class="table-container">
+  <div class="filter-menu">
+    <input type="text" class="form-control" [(ngModel)]="search" placeholder="Search..." (input)="searchTicket()">
+  </div>
+  <table class="table-employees">
+    <thead *ngIf="isLoading">
+      <tr class="trloading">
+        <th>
+          <div class="loading"></div>
+        </th>
+        <th>
+          <div class="loading"></div>
+        </th>
+      </tr>
+    </thead>
+    <thead *ngIf="!isLoading">
+      <tr>
+        <th (click)="sortColumn('Title')" style="cursor: pointer;">
+          <div style="display: flex; justify-content: space-between;">
+            <div>Title</div>
+            <div *ngIf="column === 'Title'" style="display: flex; justify-content: right;">
+              <div *ngIf="sort === true"><i class="fa fa-caret-up"></i></div>
+              <div *ngIf="sort === false"><i class="fa fa-caret-down"></i></div>
+            </div>
+          </div>
+        </th>
+        <th (click)="sortColumn('Urgency')" style="cursor: pointer;">
+          <div style="display: flex; justify-content: space-between;">
+            <div>Urgency</div>
+            <div *ngIf="column === 'Urgency'" style="display: flex; justify-content: right;">
+              <div *ngIf="sort === true"><i class="fa fa-caret-up"></i></div>
+              <div *ngIf="sort === false"><i class="fa fa-caret-down"></i></div>
+            </div>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody *ngIf="isLoading">
+      <tr *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" class="trloading">
+        <td>
+          <div class="loading"></div>
+        </td>
+        <td>
+          <div class="loading"></div>
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="!isLoading">
+      <tr *ngIf="data.length === 0">
+        <td colspan="2" style="text-align: center;"><i>No data</i></td>
+      </tr>
+      <tr *ngFor="let item of data" (click)="selectTicket(item)" [class.selected]="selectedData === item">
+        <td>{{ item.title }}</td>
+        <td>{{ item.urgency }}</td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="!isLoading">
+      <tr>
+        <td colspan="2">
+          <div>
+            <button (click)="page > 1?toPage(page - 1):null" class="prev" [class.disable]="page <= 1">
+              {{ 'Prev' }}
+            </button>
+            <button *ngFor="let pageNumber of range()" (click)="toPage(pageNumber)" style="cursor: pointer;"
+              [class.active]="page === pageNumber">
+              {{ pageNumber }}
+            </button>
+            <button (click)="page + 1 <= totalPage? toPage(page + 1):null" class="prev"
+              [class.disable]="page + 1 > totalPage">
+              {{ 'Next' }}
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+    <tfoot *ngIf="isLoading">
+      <tr>
+        <td colspan="2">
+          <div>
+            <button class="prev loading">
+            </button>
+            <button class="loading"></button>
+            <button class="next loading">
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<div *ngIf="popupVisible" class="popup-container">
+  <app-ticket-detail
+  *ngIf="popupVisible" (closePopupEvent)="closePopup()" (changeStatusEvent)="changeStatus($event)" (openResolveEvent)="openResolveTicket()"
+  [selectedTicket]="selectedTicket" [popupVisible]="popupVisible" (doneCreateSolutionEvent)="doneCreateSolution()" >
+</app-ticket-detail>
+</div><div *ngIf="solutionVisible" class="popup-container">
+  <app-ticket-solution
+  *ngIf="solutionVisible" (cancelTicketEvent)="cancelSolution()"
+  [selectedTicket]="selectedData" [popupVisible]="solutionVisible" [status]="solutionStatus"
+  (doneCreateSolutionEvent)="doneCreateSolution()">
+</app-ticket-solution>
+</div>

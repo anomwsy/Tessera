@@ -1,0 +1,38 @@
+<h3>Report Appeal</h3>
+<div class="alert alert-danger errorMessage" *ngIf="errorMessage && errorMessage !== ''" style="margin-bottom: 10px;">
+  {{ errorMessage }}
+</div>
+
+<form action="" (submit)="onSubmit()" class="form" [formGroup]="appealForm">
+  <label class="input" for="subject">
+    <input placeholder="Enter Subject" class="form-control" type="text" name="subject" formControlName="subject"
+      (input)="onInputChange()" />
+    <div class="alert alert-danger"
+      *ngIf="appealForm.controls['subject'].touched && !appealForm.controls['subject'].valid">
+      <div *ngIf="appealForm.controls['subject'].errors?.['required']">Subject is required</div>
+    </div>
+  </label>
+  <label class="input" for="description">
+    <input placeholder="Enter description" class="form-control" type="description"
+      name="description" formControlName="description" (input)="onInputChange()" />
+    <div class="alert alert-danger"
+      *ngIf="appealForm.controls['description'].touched && !appealForm.controls['description'].valid">
+      <div *ngIf="appealForm.controls['description'].errors?.['required']">Description is required</div>
+    </div>
+  </label>
+  <label class="input" for="email">
+    <input placeholder="Enter Your Email" class="form-control" type="email"
+      name="email" formControlName="email" (input)="onInputChange()" />
+    <div class="alert alert-danger"
+      *ngIf="appealForm.controls['email'].touched && !appealForm.controls['email'].valid">
+      <div *ngIf="appealForm.controls['email'].errors?.['required']">Email is required</div>
+      <div *ngIf="appealForm.controls['email'].errors?.['email']">Email is invalid</div>
+    </div>
+  </label>
+
+
+  <button type="login" class="btn btn-primary" [disabled]="isLoading">
+    <span *ngIf="!isLoading">Submit</span>
+    <div *ngIf="isLoading" class="loading-spinner"></div>
+  </button>
+</form>

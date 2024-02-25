@@ -1,0 +1,33 @@
+.layout-container > div {
+  display: flex;
+  font-size: 14px;
+}
+
+.layout-container > div > div {
+  flex: 1;
+  padding: 10px 50px;
+  height: 90vh;
+  overflow: auto;
+}
+
+.layout-container > div > div::-webkit-scrollbar {
+    width: 10px; /* Lebar scrollbar */
+    position: absolute;
+  }
+
+  .layout-container > div > div::-webkit-scrollbar-thumb {
+    background-color: #bbbbbb; /* Warna thumb scrollbar */
+    border-radius: 6px; /* Bentuk border thumb scrollbar */
+  }
+
+  .layout-container > div > div::-webkit-scrollbar-track {
+    background-color: transparent; /* Warna track scrollbar */
+    border-radius: 6px; /* Bentuk border track scrollbar */
+  }
+
+  @media screen and (max-width: 1080px) {
+    .layout-container > div {
+      font-size: 12px;
+    }
+  }
+

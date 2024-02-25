@@ -1,0 +1,65 @@
+.auth-layout-form > div {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.auth-layout-form > div > div {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(76, 74, 81);
+  padding: 30px;
+  border-radius: 15px;
+
+}
+
+.header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "left center right";
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    color: white;
+}
+
+.header h4{
+  margin: 0;
+  color: white;
+}
+
+h4{
+  margin: 0;
+  font-size: 30px;
+}
+
+h4 b{
+font-weight: bolder;
+color: rgb(255, 221, 0);
+}
+
+
+.left-header{
+    grid-area: left;
+}
+
+.center-header>a{
+    display: flex;
+    grid-area: center;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+
+.right-header{
+    grid-area: right;
+}
+
+
+
+
