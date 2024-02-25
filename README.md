@@ -1,15 +1,15 @@
 Tessera Project
 
-Introduction
+Introduction :
 Tessera is a project that focuses on improving IT service delivery within an organization. 
 It is a ticketing system where employees can request various IT services, such as server repairs, equipment requests, internet troubleshooting, and more. 
 These requests are then allocated to technical support teams for resolution.
 
-Technologies Used
+Technologies Used :
 Tessera is developed using the .NET Framework for backend operations, and AngularJS for frontend design. 
 It also employs the use of WebSockets, which enables real-time data updates, ensuring that employees can stay informed about the status of their requests.
 
-How it Works
+How it Works :
 Request Creation: Employees create tickets for their IT-related needs through Tessera's user-friendly interface. 
 They provide details about the request, such as the type of service needed and any additional information that might be relevant.
 
@@ -23,7 +23,7 @@ This level of transparency helps employees stay informed and reduces the need fo
 Resolution and Feedback: Once the issue is resolved, employees have the option to provide feedback on the service they received. 
 This feedback loop helps in continuously improving the quality of IT services within the organization.
 
-Conclusion
+Conclusion :
 Tessera is a comprehensive IT service management tool that streamlines the process of handling IT-related requests. 
 Its user-friendly interface, real-time updates, and efficient ticket assignment make it an indispensable tool for any organization looking to optimize its IT service delivery.
 
