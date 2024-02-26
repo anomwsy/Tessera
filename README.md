@@ -11,7 +11,7 @@ How it Works:
 Employees create tickets detailing their IT needs. These tickets are assigned to support teams for efficient resolution.
 
 Master Admin Login:
-Username: Master
+Username: Master,
 Password: Master.123
 
 Conclusion:
